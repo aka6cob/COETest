@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Nazer script</title>
+</head>
+<body>
+    <form action="" method="post" > 
+        <select name="dropdown">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>
+         <!-- if opeion 3 selects enable file upload -->
+         <div id="fileUploadContainer" style="display: none;" >
+            <button type="button" id="add">Add</button>
+         </div>
+
+         
+       
+        
+    <div id="fileUploadContainer"></div>
+
+    <script>
+        // Function to handle the click event of the add button
+        function handleAddButtonClick() {
+            var fileUploadContainer = document.getElementById("fileUploadContainer");
+            var fileUploader = document.createElement("input");
+            fileUploader.type = "file";
+            fileUploader.name = "file";
+            fileUploadContainer.appendChild(fileUploader);
+        }
+
+        // Attach the event listener to the add button
+        var addButton = document.getElementById("add");
+        addButton.addEventListener("click", handleAddButtonClick);
+
+    // Function to handle the change event of the dropdown
+    function handleDropdownChange() {
+        var dropdown = document.getElementsByName("dropdown")[0];
+        var fileUploadContainer = document.getElementById("fileUploadContainer");
+        
+        if (dropdown.value === "3") {
+            fileUploadContainer.style.display = "block";
+        } else {
+            fileUploadContainer.style.display = "none";
+        }
+    }
+
+    // Attach the event listener to the dropdown
+    var dropdown = document.getElementsByName("dropdown")[0];
+    dropdown.addEventListener("change", handleDropdownChange);
+
+
+    </script>
+</body>
+</html>
