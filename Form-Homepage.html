@@ -1,602 +1,1164 @@
 <!doctype html>
 
+
+
 <html>
+
+
 
 <head>
 
+
+
 <meta charset="utf-8">
+
+
 
 <title>WF-Form</title>
 
-	
 
-	
 
 </head>
-<style>
-	.divbr {
-	  border: 1px dotted rgb(90, 89, 89);
-	  padding: 10px;
-	}
-  </style>
-		  
+
+
+
+
 
 	<style>
 
+		.item,h4{color: #0077be; font-size: 20px;}
+
 	.wraper{padding: 20px; margin: 0 auto; width: 70%;}
+
+
 
       html, body {
 
+
+
       min-height: 100%;
 
+
+
       }
+
+
 
       body, div, form, input, select, p { 
 
+
+
       padding: 0;
 
+
+
       margin: 0;
+
+
 
       outline: none;
 
+
+
       font-family: Roboto, Arial, sans-serif;
+
+
 
       font-size: 14px;
 
+
+
       color: #666;
+
+
 
       line-height: 22px;
 
+
+
       }
+
+
 
       h1 {
 
+
+
       position: absolute;
+
+
 
       margin: 0;
 
+
+
       font-size: 32px;
+
+
 
       color: #fff;
 
+
+
       z-index: 2;
 
+
+
       }
+
+
 
       h2 {
 
+
+
       font-weight: 400;
 
+
+
       }
+
+
 
       .testbox {
 
+
+
       display: flex;
+
+
 
       justify-content: center;
 
+
+
       align-items: center;
+
+
 
       height: inherit;
 
+
+
       padding: 20px;
 
+
+
       }
+
+
 
       form {
 
+
+
       width: 100%;
+
+
 
       padding: 20px;
 
+
+
       border-radius: 6px;
+
+
 
       background: #fff;
 
+
+
       box-shadow: 0 0 20px 0 #0064c8; 
 
-      }
 
-      .banner {
-
-      position: relative;
-
-      height: 210px;
-
-      background-image: url("/uploads/media/default/0001/01/3f0d2969f2cffeb123ab1a6fa7408bf87bd34bd3.jpeg");  
-
-      background-size: cover;
-
-      display: flex;
-
-      justify-content: center;
-
-      align-items: center;
-
-      text-align: center;
 
       }
 
-      .banner::after {
 
-      content: "";
 
-      background-color: rgba(0, 0, 0, 0.4); 
 
-      position: absolute;
-
-      width: 80%;
-
-      height: 100%;
-
-      }
 
       input, select {
 
-      margin-bottom: 10px;
+
+
+      margin-bottom: 1px;
+
+
 
       border: 1px solid #ccc;
 
+
+
       border-radius: 3px;
 
+
+
       }
+
+
 
       input {
 
+
+
       width: calc(100% - 10px);
+
+
 
       padding: 5px;
 
+
+
       }
+
+
 
       select {
 
+
+
       width: 100%;
+
+
 
       padding: 10px 20px;
 
+
+
       background: transparent;
 
-	  background-color: #00d64a; color: #fff; margin: 0 auto;
+
+
+	  background-color: #0077be; color: #fff; margin: 0 auto;
+
+
 
       }
+
+
 
       .item:hover p, .item:hover i, .question:hover p, .question label:hover, input:hover::placeholder, a {
 
+
+
       color: #095484;
 
+
+
       }
+
+
 
       .item input:hover, .item select:hover {
 
+
+
       border: 1px solid transparent;
+
+
 
       box-shadow: 0 0 6px 0 #095484;
 
+
+
       color: #095484;
 
+
+
       }
+
+
 
       .item {
 
+
+
       position: relative;
 
-      margin: 10px 0;
+
+
+      margin: 1px 0;
+
+
 
       }
+
+
 
       input[type="date"]::-webkit-inner-spin-button {
 
+
+
       display: none;
 
+
+
       }
+
+
 
       .item i, input[type="date"]::-webkit-calendar-picker-indicator {
 
+
+
       position: absolute;
+
+
 
       font-size: 20px;
 
+
+
       color: #a9a9a9;
 
+
+
       }
+
+
 
       .item i {
 
+
+
       right: 2%;
+
+
 
       top: 30px;
 
+
+
       z-index: 1;
 
+
+
       }
+
+
 
       [type="date"]::-webkit-calendar-picker-indicator {
 
+
+
       right: 1%;
+
+
 
       z-index: 2;
 
+
+
       opacity: 0;
+
+
 
       cursor: pointer;
 
+
+
       }
+
+
 
       input[type=checkbox]  {
 
+
+
       display: none;
 
+
+
       }
+
+
 
       label.check {
 
+
+
       position: relative;
+
+
 
       display: inline-block;
 
+
+
       margin: 5px 20px 10px 0;
+
+
 
       cursor: pointer;
 
+
+
       }
+
+
 
       .question span {
 
+
+
       margin-left: 30px;
 
+
+
       }
+
+
 
       span.required {
 
+
+
       margin-left: 0;
+
+
 
       color: red;
 
+
+
       }
+
+
 
       label.check:before {
 
+
+
       content: "";
 
+
+
       position: absolute;
+
+
 
       top: 2px;
 
+
+
       left: 0;
+
+
 
       width: 16px;
 
+
+
       height: 16px;
+
+
 
       border-radius: 2px;
 
+
+
       border: 1px solid #095484;
 
+
+
       }
+
+
 
       input[type=checkbox]:checked + .check:before {
 
+
+
       background: #095484;
 
+
+
       }
+
+
 
       label.check:after {
 
+
+
       content: "";
+
+
 
       position: absolute;
 
+
+
       top: 6px;
+
+
 
       left: 4px;
 
+
+
       width: 8px;
+
+
 
       height: 4px;
 
+
+
       border: 3px solid #fff;
+
+
 
       border-top: none;
 
+
+
       border-right: none;
+
+
 
       transform: rotate(-45deg);
 
+
+
       opacity: 0;
 
+
+
       }
+
+
 
       input[type=checkbox]:checked + label:after {
 
+
+
       opacity: 1;
 
+
+
       }
+
+
 
       .btn-block {
 
+
+
       margin-top: 10px;
+
+
 
       text-align: center;
 
+
+
       }
+
+
 
       button {
 
+
+
       width: 150px;
+
+
 
       padding: 10px;
 
+
+
       border: none;
+
+
 
       border-radius: 5px; 
 
+
+
       background: #095484;
+
+
 
       font-size: 16px;
 
+
+
       color: #fff;
+
+
 
       cursor: pointer;
 
+
+
       }
+
+
 
       button:hover {
 
+
+
       background: #0666a3;
 
+
+
       }
+
+
 
       @media (min-width: 568px) {
 
+
+
       .name-item, .city-item {
+
+
 
       display: flex;
 
+
+
       flex-wrap: wrap;
+
+
 
       justify-content: space-between;
 
+
+
       }
+
+
 
       .name-item input, .city-item input {
 
+
+
       width: calc(50% - 20px);
 
+
+
       }
+
+
 
       .city-item select {
 
+
+
       width: calc(50% - 8px);
 
-      }
+
 
       }
+
+
+
+      }
+
+
 
     </style>
 
-	
+
 
 	
+
+
+
+	
+
+
 
 <body>
 
+
+
 	
+
+
 
 	<div class="wraper">
 
+
+
 	
+
+
 
 <p>
 
+
+
 	<select id="dropBox" onchange="changeSelect()" style="float:left" type="text">
 
-		<option value="1">EU Newsletter</option>
 
-		<option value="2">Local Newsletter</option>
 
-		<option value="3">DTE</option>
+		<option value="7">General Newsletter</option>
 
-		<option value="4">Supplier Central</option>
+
+
+		<option value="2">Event/Communication Newsletter</option>
+
+
+
+		<option value="3">Webinar Newsletter</option>
+
+
+
+		<!--<option value="4">Supplier Central</option>
+
+
 
 		<option value="5">Custom Newsletter</option>
 
-		<option value="6">Target Banner</option>
+		
 
 		<option value="7">General Newsletter Template</option>
 
+
+
+		<option value="6">Target Banner</option>
+
+
+
+		<option value="7">General Newsletter Template</option>
+
+
+
 		<option value="8">Welcome Page</option>
+
+
 
 		<option value="9">SEO</option>
 
-		<option value="10">General Webpage</option>
+
+
+		<option value="10">General Webpage</option>-->
+
+
 
 		 </select></p>
 
 
 
+
+
 <table border="0" style="border:none; width:100%">
+
+
 
 	<tbody style="border: none">
 
+
+
 		<tr style="border:none">
+
+
 
 			<td style="border-style:none; border-width:0px; width:50%">
 
+
+
 			<div id="General Newsletter Template" style="display:none">
+
+
 
 			<div class="testbox">
 
+				
+
+<style></style>
+
       <form action="/">
+
+
 
         <h2>General Newsletter Template </h2>
 
-		  <h4>Ad1 Block </h4>
 
-        <div class="item">
+
+		  
+
+		  <h4>Subject Line </h4>
+
+
+
+		    <div class="item">
+
+
+
+          <p>Subject Line*</p>
+
+
+
+          <input type="text" name="name"/>
+
+
 
         </div>
 
         <div class="item">
+
+
+
+          <p>Subject Line (Non-openers/AB)</p>
+
+
+
+          <input type="text" name="name"/>
+
+
+
+        </div>
+
+
+
+        <div class="item">
+
+
+
+          <p>Pre-header text</p>
+
+
+
+          <input type="text" name="name"/>
+
+
+
+        </div>
+
+
+
+		  
+
+		  <h4>Ad1 Block </h4>
+
+
+
+        <div class="item">
+
+
 
           <p>Thematic headline</p>
 
+
+
           <input type="text" name="name"/>
 
+
+
         </div>
+
+
 
         <div class="item">
 
-          <p>Headline</p>
+
+
+          <p>Headline*</p>
+
+
 
           <input type="text" name="name"/>
 
+
+
         </div>
+
+
 
         <div class="item">
 
-          <p>Image Name</p>
+
+
+          <p>Image Name*</p>
+
+
 
           <input type="text" name="name"/>
 
+
+
         </div>
+
+
 
         <div class="item">
 
-          <p>CTA Text</p>
+
+
+          <p>CTA Text*</p>
+
+
 
           <input type="text" name="name"/>
 
+
+
         </div>
+
+
 
 		  
+
+
 
 		   <div class="item">
 
-          <p>CTA Link</p>
+
+
+          <p>CTA Link*</p>
+
+
 
           <input type="text" name="name"/>
 
+
+
         </div>
 
+
+
         <div class="item">
+
+
 
           <p>Editorial Text</p>
 
+
+
           <input type="text" name="name"/>
 
+
+
         </div>
-
- 
-
-
 
 		  
 
 		  
 
-		  <h4>Additional Block</h4>
+		  
+
+		  
+
+		  
+
+		  
+
+
+
+		  <h4>Optional Block</h4>
+
+
 
         <div class="item">
+
+
 
         </div>
 
+
+
         <div class="item">
 
-          <p>Headline </p>
+
+
+          <p>Headline* </p>
+
+
 
           <input type="text" name="name"/>
 
+
+
         </div>
 
-        <div class="item">
+<div class="item">
 
-          <p>Content</p>
+
+
+          <p>Image Name*</p>
+
+
 
           <input type="text" name="name"/>
 
+
+
         </div>
 
         <div class="item">
+
+
+
+          <p>Content*</p>
+
+
+
+          <input type="text" name="name"/>
+
+
+
+        </div>
+
+
+
+        <div class="item">
+
+
 
           <p>CTA Text</p>
 
+
+
           <input type="text" name="name"/>
 
+
+
         </div>
+
+
 
         <div class="item">
 
+
+
           <p>CTA Link</p>
+
+
 
           <input type="text" name="name"/>
 
+
+
         </div>
 
-	
-		<div>
-			<h4>Genral Block</h4>
-			<button type="button" id="add">+</button>
-			<!--create style to draw border for div-->
-	
 
-				
+
+		<div>
+
+			<h4>Promotional Block 1</h4>
+
+			
+
+			<!--create style to draw border for div-->
+
+	
 
 		</div>
 
-<div id ="generalblock"  class="divbr">
-	
 
-	
+
+<div id ="generalblock"  class="divbr">
+
+
+
+
 
         <div class="item divbr">
 
+
+
         </div>
+
+
 
         <div class="item">
 
-          <p>Headline </p>
+
+
+          <p>Headline* </p>
+
+
 
           <input type="text" name="name"/>
 
+
+
         </div>
+
+
 
         <div class="item">
 
-          <p>Image Name</p>
+
+
+          <p>Image Name*</p>
+
+
 
           <input type="text" name="name"/>
 
+
+
         </div>
+
+
 
 		  <div class="item">
 
-          <p>Block Text</p>
+
+
+          <p>Content</p>
+
+
 
           <input type="text" name="name"/>
+
+
 
         </div>
 
+
+
         <div class="item">
 
-          <p>CTA Text</p>
+
+
+          <p>CTA Text*</p>
+
+
 
           <input type="text" name="name"/>
+
+
 
         </div>
 
+
+
         <div class="item">
 
-          <p>CTA Link</p>
+
+
+          <p>CTA Link*</p>
+
+
 
           <input type="text" name="name"/>
+
+
 
         </div>	  
 
+
+
 	
-	</div>
+
+	</div><Br>
+
+<button type="button" id="add">Add Block</button>
+
+<button type="button" id="remove">Remove</button>	  
+
 		  
-		  
+
+
 
 		  
 
@@ -606,7 +1168,21 @@
 
         </div>
 
+
+
       </form>
+
+
+
+				
+
+				
+
+				
+
+				
+
+				
 
     </div>
 
@@ -616,555 +1192,1077 @@
 
 			<div id="Welcome Page" style="display:none">
 
+
+
 			<table border="0">
+
+
 
 				<tbody>
 
+
+
 					<tr align="left" style="border:none">
+
+
 
 						<td style="border-style:none; border-width:0px"><img alt="" height="153" src="http://eusc1wcms05.eu.ad.vwr.com/CMS/ioLoadImage.asp?FolderGuid=F9C7DD88FDE7411EB0CDA1785BA19C34/5E7ABBA290D0423CBACDE5471329E902" width="220" /></td>
 
-						<td style="border-style:none; border-width:0px">&nbsp;</td>
+
 
 						<td style="border-style:none; border-width:0px">&nbsp;</td>
+
+
+
+						<td style="border-style:none; border-width:0px">&nbsp;</td>
+
+
 
 					</tr>
 
+
+
 					<tr align="left" style="border:none">
+
+
 
 						<td style="border-style:none; border-width:0px"><strong>Tasha Baird</strong><br />
 
+
+
 						VWR ACCOUNT MANAGER<br />
 
+
+
 						913.938.0233<br />
+
+
 
 						<a href="mailto:Tasha.baird@avantorsciences.com">Tasha.baird@avantorsciences.com</a></td>
 
 
 
+
+
+
+
 					</tr>
+
+
 
 				</tbody>
 
+
+
 			</table>
 
+
+
 			</div>
+
+
+
+
 
 
 
 			<div id="USA / WI" style="display:none">
 
+
+
 			<table border="0">
+
+
 
 				<tbody>
 
+
+
 					<tr align="left" style="border:none">
+
+
 
 						<td style="border-style:none; border-width:0px"><img alt="" height="153" src="http://eusc1wcms05.eu.ad.vwr.com/CMS/ioLoadImage.asp?FolderGuid=F9C7DD88FDE7411EB0CDA1785BA19C34/12D0B67E5A6D48EE9C41CE9BB5FF5D79" width="220" /></td>
 
-						<td style="border-style:none; border-width:0px">&nbsp;</td>
+
 
 						<td style="border-style:none; border-width:0px">&nbsp;</td>
+
+
+
+						<td style="border-style:none; border-width:0px">&nbsp;</td>
+
+
 
 					</tr>
 
+
+
 					<tr align="left" style="border:none">
+
+
 
 						<td style="border-style:none; border-width:0px"><strong>Sara Liliensiek</strong><br />
 
+
+
 						VWR ACCOUNT MANAGER<br />
 
+
+
 						608.234.3751<br />
+
+
 
 						<a href="mailto:Sara.Liliensiek@avantorsciences.com">Sara.Liliensiek@avantorsciences.com</a></td>
 
 
 
+
+
+
+
 					</tr>
+
+
 
 				</tbody>
 
+
+
 			</table>
 
+
+
 			</div>
+
+
+
+
 
 
 
 			<div id="Custom Newsletter" style="display:none">
 
+
+
 			<table border="0" style="border:none">
+
+
 
 				<tbody style="border: none">
 
+
+
 					<tr align="left" style="border:none">
+
+
 
 						<td style="border-style:none; border-width:0px"><img alt="" height="153" src="http://eusc1wcms05.eu.ad.vwr.com/CMS/ioLoadImage.asp?FolderGuid=F9C7DD88FDE7411EB0CDA1785BA19C34/EA0C3DA40A274103B88773CDBAAC90DE" width="220" /></td>
 
-						<td style="border-style:none; border-width:0px">&nbsp;</td>
+
 
 						<td style="border-style:none; border-width:0px">&nbsp;</td>
+
+
+
+						<td style="border-style:none; border-width:0px">&nbsp;</td>
+
+
 
 					</tr>
+
+
 
 					<tr align="left" style="border:none">
 
+
+
 						<td style="border-style:none; border-width:0px"><strong>Tammy Curtis</strong><br />
+
+
 
 						VWR ACCOUNT MANAGER<br />
 
+
+
 						859.437.5619<br />
+
+
 
 						<a href="mailto:Tammy.Curtis@avantorsciences.com">Tammy.Curtis@avantorsciences.com</a></td>
 
+
+
 						<!--<td>Seth Cory<br />
+
+
 
 			Life Science Specialist<br />
 
+
+
 			Seth.Cory@avantorsciences.com<br />
+
+
 
 			brittnee.diehl@avantorsciences.com</td>--><!--<td>Ryan Corra<br />
 
+
+
 			Analytical Chemistry Specialist<br />
+
+
 
 			682 346 5188<br />
 
+
+
 			Ryan.Corra@avantorsciences.com</td>-->
+
+
 
 					</tr>
 
+
+
 				</tbody>
+
+
 
 			</table>
 
+
+
 			</div>
+
+
+
+
 
 
 
 			<div id="DTE" style="display:none">
 
+
+
 			<table border="0" style="border:none">
+
+
 
 				<tbody style="border: none">
 
+
+
 					<tr align="left" style="border:none">
+
+
 
 						<td style="border-style:none; border-width:0px"><img alt="" height="153" src="http://eusc1wcms05.eu.ad.vwr.com/CMS/ioLoadImage.asp?FolderGuid=DC1DA58E050E43E19D148CF83A9AC99D/A6B355299BE946B7A64FB2F958BBC0CF" width="220" /></td>
 
-						<td style="border-style:none; border-width:0px">&nbsp;</td>
+
 
 						<td style="border-style:none; border-width:0px">&nbsp;</td>
+
+
+
+						<td style="border-style:none; border-width:0px">&nbsp;</td>
+
+
 
 					</tr>
 
+
+
 					<tr align="left" style="border:none">
+
+
 
 						<td style="border-style:none; border-width:0px"><strong>Christine Conforti</strong><br />
 
+
+
 						VWR ACCOUNT MANAGER<br />
 
+
+
 						727.291.1644<br />
+
+
 
 						<a href="mailto:Christine.conforti@avantorsciences.com">Christine.conforti@avantorsciences.com</a></td>
 
 
 
+
+
+
+
 					</tr>
+
+
 
 				</tbody>
 
+
+
 			</table>
 
+
+
 			</div>
+
+
+
+
 
 
 
 			<div id="Supplier Central" style="display:none">
 
+
+
 			<table border="0" style="border:none">
+
+
 
 				<tbody style="border: none">
 
+
+
 					<tr align="left" style="border:none">
+
+
 
 						<td style="border-style:none; border-width:0px"><img alt="" height="153" src="http://eusc1wcms05.eu.ad.vwr.com/CMS/ioLoadImage.asp?FolderGuid=F9C7DD88FDE7411EB0CDA1785BA19C34/6411F2E8E5D943CB906D69B1F4CA8452" width="220" /></td>
 
-						<td style="border-style:none; border-width:0px">&nbsp;</td>
+
 
 						<td style="border-style:none; border-width:0px">&nbsp;</td>
+
+
+
+						<td style="border-style:none; border-width:0px">&nbsp;</td>
+
+
 
 					</tr>
+
+
 
 					<tr align="left" style="border:none">
 
+
+
 						<td style="border-style:none; border-width:0px"><strong>Andy Worthington</strong><br />
+
+
 
 						VWR ACCOUNT MANAGER<br />
 
+
+
 						317.626.5775<br />
+
+
 
 						<a href="mailto:Andy.worthington@avantorsciences.com">Andy.worthington@avantorsciences.com</a></td>
 
+
+
 						<!--<td>Seth Cory<br />
+
+
 
 			Life Science Specialist<br />
 
+
+
 			Seth.Cory@avantorsciences.com<br />
+
+
 
 			brittnee.diehl@avantorsciences.com</td>--><!--<td>Ryan Corra<br />
 
+
+
 			Analytical Chemistry Specialist<br />
+
+
 
 			682 346 5188<br />
 
+
+
 			Ryan.Corra@avantorsciences.com</td>-->
+
+
 
 					</tr>
 
+
+
 				</tbody>
+
+
 
 			</table>
 
+
+
 			</div>
+
+
+
+
 
 
 
 			<div id="General Webpage" style="display:none">
 
+
+
 			<table border="0" style="border:none">
+
+
 
 				<tbody style="border: none">
 
+
+
 					<tr align="left" style="border:none">
+
+
 
 						<td style="border-style:none; border-width:0px"><img alt="" height="153" src="http://eusc1wcms05.eu.ad.vwr.com/CMS/ioLoadImage.asp?FolderGuid=F9C7DD88FDE7411EB0CDA1785BA19C34/F633FA0FD4F2474F90D63E6445AD83A0" width="220" /></td>
 
-						<td style="border-style:none; border-width:0px">&nbsp;</td>
+
 
 						<td style="border-style:none; border-width:0px">&nbsp;</td>
+
+
+
+						<td style="border-style:none; border-width:0px">&nbsp;</td>
+
+
 
 					</tr>
 
+
+
 					<tr align="left" style="border:none">
+
+
 
 						<td style="border-style:none; border-width:0px"><strong>Dave Bauer</strong><br />
 
+
+
 						VWR ACCOUNT MANAGER<br />
 
+
+
 						919.576.5553<br />
+
+
 
 						<a href="mailto:david.bauer@avantorsciences.com">David.bauer@avantorsciences.com</a></td>
 
 
 
+
+
+
+
 					</tr>
+
+
 
 				</tbody>
 
+
+
 			</table>
 
+
+
 			</div>
+
+
+
+
 
 
 
 			<div id="EU Newsletter" style="display:block">
 
+
+
 <table border="0" style="border:none">
+
+
 
 				<tbody style="border: none">
 
+
+
 					<tr align="left" style="border:none">
+
+
 
 						<td style="border-style:none; border-width:0px"><img alt="" height="153" src="http://eusc1wcms05.eu.ad.vwr.com/CMS/ioLoadImage.asp?FolderGuid=F9C7DD88FDE7411EB0CDA1785BA19C34/9FC2D0679AAD4CAFAB15E1C044F82DEA" width="220" /></td>
 
-						<td style="border-style:none; border-width:0px">&nbsp;</td>
+
 
 						<td style="border-style:none; border-width:0px">&nbsp;</td>
+
+
+
+						<td style="border-style:none; border-width:0px">&nbsp;</td>
+
+
 
 					</tr>
+
+
 
 					<tr align="left" style="border:none">
 
+
+
 						<td style="border-style:none; border-width:0px"><strong>Julie Grove</strong><br />
+
+
 
 						VWR ACCOUNT MANAGER<br />
 
+
+
 						919.943.5671<br />
+
+
 
 						<a href="mailto:Julie.grove@avantorsciences.com">Julie.grove@avantorsciences.com</a></td>
 
-						<!--<td>Seth Cory<br />
-
-			Life Science Specialist<br />
-
-			Seth.Cory@avantorsciences.com<br />
-
-			brittnee.diehl@avantorsciences.com</td>--><!--<td>Ryan Corra<br />
-
-			Analytical Chemistry Specialist<br />
-
-			682 346 5188<br />
-
-			Ryan.Corra@avantorsciences.com</td>-->
-
 					</tr>
 
+
+
 				</tbody>
+
+
 
 			</table>			</div>
 
 
 
+
+
+
+
 			<div id="SEO" style="display:none">
+
+
 
 			<table border="0" style="border:none">
 
+
+
 				<tbody style="border: none">
 
+
+
 					<tr align="left" style="border:none">
+
+
 
 						<td style="border-style:none; border-width:0px"><img alt="" height="153" src="http://eusc1wcms05.eu.ad.vwr.com/CMS/ioLoadImage.asp?FolderGuid=F9C7DD88FDE7411EB0CDA1785BA19C34/9FC2D0679AAD4CAFAB15E1C044F82DEA" width="220" /></td>
 
-						<td style="border-style:none; border-width:0px">&nbsp;</td>
+
 
 						<td style="border-style:none; border-width:0px">&nbsp;</td>
+
+
+
+						<td style="border-style:none; border-width:0px">&nbsp;</td>
+
+
 
 					</tr>
 
+
+
 					<tr align="left" style="border:none">
+
+
 
 						<td style="border-style:none; border-width:0px"><strong>Julie Grove</strong><br />
 
+
+
 						VWR ACCOUNT MANAGER<br />
 
+
+
 						919.943.5671<br />
+
+
 
 						<a href="mailto:Julie.grove@avantorsciences.com">Julie.grove@avantorsciences.com</a></td>
 
 
 
+
+
+
+
 					</tr>
+
+
 
 				</tbody>
 
+
+
 			</table>
 
+
+
 			</div>
+
+
+
+
 
 
 
 			<div id="USA / NJ / Princeton" style="display:none">
 
+
+
 			<table border="0" style="border:none">
+
+
 
 				<tbody style="border: none">
 
+
+
 					<tr align="left" style="border:none">
+
+
 
 						<td style="border-style:none; border-width:0px"><img alt="" height="153" src="http://eusc1wcms05.eu.ad.vwr.com/CMS/ioLoadImage.asp?FolderGuid=F9C7DD88FDE7411EB0CDA1785BA19C34/3ED270C732C940B7B962C8A824601153" width="220" /></td>
 
-						<td style="border-style:none; border-width:0px">&nbsp;</td>
+
 
 						<td style="border-style:none; border-width:0px">&nbsp;</td>
+
+
+
+						<td style="border-style:none; border-width:0px">&nbsp;</td>
+
+
 
 					</tr>
 
+
+
 					<tr align="left" style="border:none">
+
+
 
 						<td style="border-style:none; border-width:0px"><strong>Shawn Mosby</strong><br />
 
+
+
 						VWR ACCOUNT MANAGER<br />
 
+
+
 						856.220.3669<br />
+
+
 
 						<a href="mailto:shawn.mosby@avantorsciences.com">shawn.mosby@avantorsciences.com</a></td>
 
 
 
+
+
+
+
 					</tr>
+
+
 
 				</tbody>
 
+
+
 			</table>
 
+
+
 			</div>
+
+
+
+
 
 
 
 			<div id="USA / NJ / Somerset" style="display:none">
 
+
+
 			<table border="0" style="border:none">
+
+
 
 				<tbody style="border: none">
 
+
+
 					<tr align="left" style="border:none">
+
+
 
 						<td style="border-style:none; border-width:0px"><img alt="" height="153" src="http://eusc1wcms05.eu.ad.vwr.com/CMS/ioLoadImage.asp?FolderGuid=F9C7DD88FDE7411EB0CDA1785BA19C34/CB82DFE32B494116B1EE81322FBE8D5C" width="220" /></td>
 
-						<td style="border-style:none; border-width:0px">&nbsp;</td>
+
 
 						<td style="border-style:none; border-width:0px">&nbsp;</td>
+
+
+
+						<td style="border-style:none; border-width:0px">&nbsp;</td>
+
+
 
 					</tr>
+
+
 
 					<tr align="left" style="border:none">
 
+
+
 						<td style="border-style:none; border-width:0px"><strong>Lucas Sabella</strong><br />
+
+
 
 						VWR ACCOUNT MANAGER<br />
 
+
+
 						856.716.4268<br />
+
+
 
 						<a href="mailto:lucas.sabella@avantorsciences.com">lucas.sabella@avantorsciences.com</a></td>
 
+
+
 	
+
+
 
 					</tr>
 
+
+
 				</tbody>
+
+
 
 			</table>
 
+
+
 			</div>
+
+
+
+
 
 
 
 			<div id="Target Banner" style="display:none">
 
+
+
 			<table border="0" style="border:none">
+
+
 
 				<tbody style="border: none">
 
+
+
 					<tr align="left" style="border:none">
+
+
 
 						<td style="border-style:none; border-width:0px"><img alt="" height="153" src="http://eusc1wcms05.eu.ad.vwr.com/CMS/ioLoadImage.asp?FolderGuid=F9C7DD88FDE7411EB0CDA1785BA19C34/3341BB07FCF9470E95F5DDC8EDBF4965" width="220" /></td>
 
-						<td style="border-style:none; border-width:0px">&nbsp;</td>
+
 
 						<td style="border-style:none; border-width:0px">&nbsp;</td>
+
+
+
+						<td style="border-style:none; border-width:0px">&nbsp;</td>
+
+
 
 					</tr>
 
+
+
 					<tr align="left" style="border:none">
+
+
 
 						<td style="border-style:none; border-width:0px"><strong>Mollie Westerman</strong><br />
 
+
+
 						VWR ACCOUNT MANAGER<br />
 
+
+
 						781.490.0159<br />
+
+
 
 						<a href="mailto:mollie.westerman@avantorsciences.com">Mollie.westerman@avantorsciences.com </a></td>
 
 
 
+
+
+
+
 					</tr>
+
+
 
 				</tbody>
 
+
+
 			</table>
 
+
+
 			</div>
+
+
+
+
 
 
 
 			<div id="USA / PA" style="display:none">
 
+
+
 			<table border="0" style="border:none">
+
+
 
 				<tbody style="border: none">
 
+
+
 					<tr align="left" style="border:none">
+
+
 
 						<td style="border-style:none; border-width:0px"><img alt="" height="153" src="http://eusc1wcms05.eu.ad.vwr.com/CMS/ioLoadImage.asp?FolderGuid=F9C7DD88FDE7411EB0CDA1785BA19C34/2D29156B85344805993BCC10C57BC244" width="220" /></td>
 
-						<td style="border-style:none; border-width:0px">&nbsp;</td>
+
 
 						<td style="border-style:none; border-width:0px">&nbsp;</td>
+
+
+
+						<td style="border-style:none; border-width:0px">&nbsp;</td>
+
+
 
 					</tr>
 
+
+
 					<tr align="left" style="border:none">
+
+
 
 						<td style="border-style:none; border-width:0px"><strong>Alison Adamski</strong><br />
 
+
+
 						VWR ACCOUNT MANAGER<br />
 
+
+
 						610.235.6648<br />
+
+
 
 						<a href="mailto:alison.adamski@avantorsciences.com">Alison.adamski@avantorsciences.com</a></td>
 
 
 
+
+
+
+
 					</tr>
+
+
 
 				</tbody>
 
+
+
 			</table>
 
+
+
 			</div>
+
+
+
+
 
 
 
 			<div id="CANADA" style="display:none">
 
+
+
 			<table border="0" style="border:none">
+
+
 
 				<tbody style="border: none">
 
+
+
 					<tr align="left" style="border:none">
+
+
 
 						<td style="border-style:none; border-width:0px"><img alt="" height="153" src="http://eusc1wcms05.eu.ad.vwr.com/CMS/ioLoadImage.asp?FolderGuid=F9C7DD88FDE7411EB0CDA1785BA19C34/062DED8BAE18465EA73834310AE8AC6C" width="220" /></td>
 
-						<td style="border-style:none; border-width:0px">&nbsp;</td>
+
 
 						<td style="border-style:none; border-width:0px">&nbsp;</td>
+
+
+
+						<td style="border-style:none; border-width:0px">&nbsp;</td>
+
+
 
 					</tr>
 
+
+
 					<tr align="left" style="border:none">
+
+
 
 						<td style="border-style:none; border-width:0px"><strong>Colleen Blakemore</strong><br />
 
+
+
 						VWR ACCOUNT MANAGER<br />
 
+
+
 						647.405.0165<br />
+
+
 
 						<a href="mailto:colleen.blakemore@avantorsciences.com">colleen.blakemore@avantorsciences.com</a></td>
 
 
 
+
+
+
+
 					</tr>
+
+
 
 				</tbody>
 
+
+
 			</table>
+
+
 
 			</div>
 
 
 
+
+
+
+
 			<div id="Local Newsletter" style="display:none">
+
+
 
 			<table border="0" style="border:none">
 
+
+
 				<tbody style="border: none">
 
+
+
 					<tr align="left" style="border:none">
+
+
 
 						<td style="border-style:none; border-width:0px"><img alt="" height="153" src="http://eusc1wcms05.eu.ad.vwr.com/CMS/ioLoadImage.asp?FolderGuid=F9C7DD88FDE7411EB0CDA1785BA19C34/9AE7B1D0C64742249566E7469F730A99" width="220" /></td>
 
-						<td style="border-style:none; border-width:0px">&nbsp;</td>
+
 
 						<td style="border-style:none; border-width:0px">&nbsp;</td>
+
+
+
+						<td style="border-style:none; border-width:0px">&nbsp;</td>
+
+
 
 					</tr>
 
+
+
 					<tr align="left" style="border:none">
+
+
 
 						<td style="border-style:none; border-width:0px"><strong>Jeff Elkun</strong><br />
 
+
+
 						VWR ACCOUNT MANAGER<br />
 
+
+
 						442.257.9323<br />
+
+
 
 						<a href="mailto:Jeffrey.elkun@avantorsciences.com">Jeffrey.elkun@avantorsciences.com</a></td>
 
@@ -1172,7 +2270,11 @@
 
 					</tr>
 
+
+
 				</tbody>
+
+
 
 			</table>
 
@@ -1180,529 +2282,1014 @@
 
 			</td>
 
-			
+
 
 		</tr>
 
+
+
 	</tbody>
+
+
 
 </table>
 
 
 
-
-
-
-
-<div class="wraper">
-
-	
-
-	<div id="EU Newsletter" style="display:block">
-
-			</div>
-
-	
-
-	</div>
-
-	
-
-	
-
-	
-
 </div>	
 
 </body>
+
+
 
 </html>
 
 
 
+
+
+
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 <script>
 
+var globalCount =2;
+
+
 		$(document).ready(function(){
+
 			$("#add").click(function(){
-				$("#generalblock").append('<div class="item divbr" ><p>Headline </p><input type="text" name="name"/><p>Content</p><input type="text" name="name"/><p>CTA Text</p><input type="text" name="name"/><p>CTA Link</p><input type="text" name="name"></div>');
+
+				$("#generalblock").append('<div class="item divbr" id=promotion'+globalCount+'><h4>Promotional Block '+globalCount+'</h4><p>Headline* </p><input type="text" name="name"/><p>Image Name* </p><input type="text" name="name"/><p>Content</p><input type="text" name="name"/><p>CTA Text*</p><input type="text" name="name"/><p>CTA Link*</p><input type="text" name="name"></div>');
+				globalCount=globalCount+1;
+
 			});
+
+			$("#remove").click(function(){
+
+				$("#generalblock").children().last().remove();
+
+			});
+
 		});
+
+	
+
+
+
+	
+
+
+	
+
 	
 
 function changeSelect() {
 
+
+
     if
+
+
 
         (document.getElementById("dropBox").value == "1") {
 
+
+
         document.getElementById("EU Newsletter").style.display = "block";
+
+
 
         document.getElementById("Local Newsletter").style.display = "none";
 
+
+
         document.getElementById("DTE").style.display = "none";  
+
+
 
         document.getElementById("Supplier Central").style.display = "none";
 
+
+
         document.getElementById("Custom Newsletter").style.display = "none";
+
+
 
         document.getElementById("Target Banner").style.display = "none";
 
+
+
         document.getElementById("General Newsletter Template").style.display = "none";  
+
+
 
         document.getElementById("Welcome Page").style.display = "none";  
 
+
+
         document.getElementById("SEO").style.display = "none";  
+
+
 
         document.getElementById("General Webpage").style.display = "none";  
 
+
+
         
 
+
+
       
+
+
 
     
 
+
+
       } else if (document.getElementById("dropBox").value == "2") {
 
+
+
         document.getElementById("EU Newsletter").style.display = "none";
+
+
 
         document.getElementById("Local Newsletter").style.display = "block";
 
+
+
         document.getElementById("DTE").style.display = "none";  
+
+
 
         document.getElementById("Supplier Central").style.display = "none";
 
+
+
         document.getElementById("Custom Newsletter").style.display = "none";
+
+
 
         document.getElementById("Target Banner").style.display = "none";
 
+
+
         document.getElementById("General Newsletter Template").style.display = "none";  
+
+
 
         document.getElementById("Welcome Page").style.display = "none";  
 
+
+
         document.getElementById("SEO").style.display = "none";  
+
+
 
         document.getElementById("General Webpage").style.display = "none";  
 
+
+
         
 
+
+
        
+
+
 
             
 
+
+
     } else if (document.getElementById("dropBox").value == "3") {
+
+
 
         document.getElementById("EU Newsletter").style.display = "none";
 
+
+
         document.getElementById("Local Newsletter").style.display = "none";
+
+
 
         document.getElementById("DTE").style.display = "block";  
 
+
+
         document.getElementById("Supplier Central").style.display = "none";
+
+
 
         document.getElementById("Custom Newsletter").style.display = "none";
 
+
+
         document.getElementById("Target Banner").style.display = "none";
+
+
 
         document.getElementById("General Newsletter Template").style.display = "none";  
 
+
+
         document.getElementById("Welcome Page").style.display = "none";  
+
+
 
         document.getElementById("SEO").style.display = "none";  
 
+
+
         document.getElementById("General Webpage").style.display = "none";  
+
+
 
         
 
+
+
     }
 
+
+
  
+
+
 
     else if (document.getElementById("dropBox").value == "4") {
 
+
+
         document.getElementById("EU Newsletter").style.display = "none";
+
+
 
         document.getElementById("Local Newsletter").style.display = "none";
 
+
+
         document.getElementById("DTE").style.display = "none";  
+
+
 
         document.getElementById("Supplier Central").style.display = "block";
 
+
+
         document.getElementById("Custom Newsletter").style.display = "none";
+
+
 
         document.getElementById("Target Banner").style.display = "none";
 
+
+
         document.getElementById("General Newsletter Template").style.display = "none";  
+
+
 
         document.getElementById("Welcome Page").style.display = "none";  
 
+
+
         document.getElementById("SEO").style.display = "none";  
+
+
 
         document.getElementById("General Webpage").style.display = "none";  
 
+
+
         
+
+
 
     }
 
- 
+
 
  
+
+
+
+ 
+
+
 
     else if (document.getElementById("dropBox").value == "5") {
 
+
+
         document.getElementById("EU Newsletter").style.display = "none";
+
+
 
         document.getElementById("Local Newsletter").style.display = "none";
 
+
+
         document.getElementById("DTE").style.display = "none";  
 
+
+
         document.getElementById("Supplier Central").style.display = "none";
+
+
 
         document.getElementById("Custom Newsletter").style.display = "block";
 
+
+
         document.getElementById("Target Banner").style.display = "none";
+
+
 
         document.getElementById("General Newsletter Template").style.display = "none";  
 
+
+
         document.getElementById("Welcome Page").style.display = "none";  
+
+
 
         document.getElementById("SEO").style.display = "none";  
 
+
+
         document.getElementById("General Webpage").style.display = "none";  
 
+
+
         
+
+
 
     }
 
 
 
+
+
+
+
  
+
+
 
     else if (document.getElementById("dropBox").value == "6") {
 
+
+
         document.getElementById("EU Newsletter").style.display = "none";
+
+
 
         document.getElementById("Local Newsletter").style.display = "none";
 
+
+
         document.getElementById("DTE").style.display = "none";  
+
+
 
         document.getElementById("Supplier Central").style.display = "none";
 
+
+
         document.getElementById("Custom Newsletter").style.display = "none";
+
+
 
         document.getElementById("Target Banner").style.display = "block";
 
+
+
         document.getElementById("General Newsletter Template").style.display = "none";  
+
+
 
         document.getElementById("Welcome Page").style.display = "none";  
 
+
+
         document.getElementById("SEO").style.display = "none";  
+
+
 
         document.getElementById("General Webpage").style.display = "none";  
 
+
+
         
+
+
 
     }
 
+
+
  
+
+
 
     else if (document.getElementById("dropBox").value == "7") {
 
+
+
         document.getElementById("EU Newsletter").style.display = "none";
+
+
 
         document.getElementById("Local Newsletter").style.display = "none";
 
+
+
         document.getElementById("DTE").style.display = "none";  
+
+
 
         document.getElementById("Supplier Central").style.display = "none";
 
+
+
         document.getElementById("Custom Newsletter").style.display = "none";
 
+
+
         document.getElementById("Target Banner").style.display = "none";
+
+
 
         document.getElementById("General Newsletter Template").style.display = "block";  
 
+
+
         document.getElementById("Welcome Page").style.display = "none";  
+
+
 
         document.getElementById("SEO").style.display = "none";  
 
+
+
         document.getElementById("General Webpage").style.display = "none";  
+
+
 
         
 
+
+
     }
 
+
+
  
+
+
 
     else if (document.getElementById("dropBox").value == "8") {
 
+
+
         document.getElementById("EU Newsletter").style.display = "none";
+
+
 
         document.getElementById("Local Newsletter").style.display = "none";
 
+
+
         document.getElementById("DTE").style.display = "none";  
+
+
 
         document.getElementById("Supplier Central").style.display = "none";
 
+
+
         document.getElementById("Custom Newsletter").style.display = "none";
+
+
 
         document.getElementById("Target Banner").style.display = "none";
 
+
+
         document.getElementById("General Newsletter Template").style.display = "none";  
+
+
 
         document.getElementById("Welcome Page").style.display = "block";  
 
+
+
         document.getElementById("SEO").style.display = "none";  
+
+
 
         document.getElementById("General Webpage").style.display = "none";  
 
+
+
         
+
+
 
     }
 
+
+
  
+
+
 
     else if (document.getElementById("dropBox").value == "9") {
 
+
+
         document.getElementById("EU Newsletter").style.display = "none";
+
+
 
         document.getElementById("Local Newsletter").style.display = "none";
 
+
+
         document.getElementById("DTE").style.display = "none";  
+
+
 
         document.getElementById("Supplier Central").style.display = "none";
 
+
+
         document.getElementById("Custom Newsletter").style.display = "none";
+
+
 
         document.getElementById("Target Banner").style.display = "none";
 
+
+
         document.getElementById("General Newsletter Template").style.display = "none";  
 
+
+
         document.getElementById("Welcome Page").style.display = "none";  
+
+
 
         document.getElementById("SEO").style.display = "block";  
 
+
+
         document.getElementById("General Webpage").style.display = "none";  
+
+
 
         
 
+
+
     }
 
+
+
  
+
+
 
     else if (document.getElementById("dropBox").value == "10") {
 
+
+
         document.getElementById("EU Newsletter").style.display = "none";
+
+
 
         document.getElementById("Local Newsletter").style.display = "none";
 
+
+
         document.getElementById("DTE").style.display = "none";  
+
+
 
         document.getElementById("Supplier Central").style.display = "none";
 
+
+
         document.getElementById("Custom Newsletter").style.display = "none";
+
+
 
         document.getElementById("Target Banner").style.display = "none";
 
+
+
         document.getElementById("General Newsletter Template").style.display = "none";  
+
+
 
         document.getElementById("Welcome Page").style.display = "none";  
 
+
+
         document.getElementById("SEO").style.display = "none";  
+
+
 
         document.getElementById("General Webpage").style.display = "block";  
 
+
+
        
+
+
 
     }
 
+
+
  
+
+
 
     else if (document.getElementById("dropBox").value == "11") {
 
+
+
         document.getElementById("EU Newsletter").style.display = "none";
+
+
 
         document.getElementById("Local Newsletter").style.display = "none";
 
+
+
         document.getElementById("DTE").style.display = "none";  
+
+
 
         document.getElementById("Supplier Central").style.display = "none";
 
+
+
         document.getElementById("Custom Newsletter").style.display = "none";
+
+
 
         document.getElementById("Target Banner").style.display = "none";
 
+
+
         document.getElementById("General Newsletter Template").style.display = "none";  
+
+
 
         document.getElementById("Welcome Page").style.display = "none";  
 
+
+
         document.getElementById("SEO").style.display = "none";  
 
+
+
         document.getElementById("General Webpage").style.display = "none";  
+
+
 
         document.getElementById("USA / NJ / Princeton").style.display = "block";  
 
+
+
         document.getElementById("USA / NJ / Somerset").style.display = "none";
+
+
 
         document.getElementById("USA / PA").style.display = "none";
 
+
+
         document.getElementById("USA / WI").style.display = "none";  
+
+
 
         document.getElementById("CANADA").style.display = "none";
 
+
+
     }
 
+
+
  
+
+
 
     else if (document.getElementById("dropBox").value == "12") {
 
+
+
         document.getElementById("EU Newsletter").style.display = "none";
+
+
 
         document.getElementById("Local Newsletter").style.display = "none";
 
+
+
         document.getElementById("DTE").style.display = "none";  
+
+
 
         document.getElementById("Supplier Central").style.display = "none";
 
+
+
         document.getElementById("Custom Newsletter").style.display = "none";
+
+
 
         document.getElementById("Target Banner").style.display = "none";
 
+
+
         document.getElementById("General Newsletter Template").style.display = "none";  
+
+
 
         document.getElementById("Welcome Page").style.display = "none";  
 
+
+
         document.getElementById("SEO").style.display = "none";  
+
+
 
         document.getElementById("General Webpage").style.display = "none";  
 
+
+
         document.getElementById("USA / NJ / Princeton").style.display = "none";  
+
+
 
         document.getElementById("USA / NJ / Somerset").style.display = "block";
 
+
+
         document.getElementById("USA / PA").style.display = "none";
+
+
 
         document.getElementById("USA / WI").style.display = "none";  
 
+
+
         document.getElementById("CANADA").style.display = "none";
+
+
 
     }
 
+
+
  
+
+
 
     else if (document.getElementById("dropBox").value == "13") {
 
+
+
         document.getElementById("EU Newsletter").style.display = "none";
+
+
 
         document.getElementById("Local Newsletter").style.display = "none";
 
+
+
         document.getElementById("DTE").style.display = "none";  
+
+
 
         document.getElementById("Supplier Central").style.display = "none";
 
+
+
         document.getElementById("Custom Newsletter").style.display = "none";
+
+
 
         document.getElementById("Target Banner").style.display = "none";
 
+
+
         document.getElementById("General Newsletter Template").style.display = "none";  
+
+
 
         document.getElementById("Welcome Page").style.display = "none";  
 
+
+
         document.getElementById("SEO").style.display = "none";  
+
+
 
         document.getElementById("General Webpage").style.display = "none";  
 
+
+
         document.getElementById("USA / NJ / Princeton").style.display = "none";  
 
+
+
         document.getElementById("USA / NJ / Somerset").style.display = "none";
+
+
 
         document.getElementById("USA / PA").style.display = "block";
 
+
+
         document.getElementById("USA / WI").style.display = "none";  
+
+
 
         document.getElementById("CANADA").style.display = "none";
 
+
+
     }
+
+
 
  
 
+
+
     else if (document.getElementById("dropBox").value == "14") {
+
+
 
         document.getElementById("EU Newsletter").style.display = "none";
 
+
+
         document.getElementById("Local Newsletter").style.display = "none";
+
+
 
         document.getElementById("DTE").style.display = "none";  
 
+
+
         document.getElementById("Supplier Central").style.display = "none";
+
+
 
         document.getElementById("Custom Newsletter").style.display = "none";
 
+
+
         document.getElementById("Target Banner").style.display = "none";
+
+
 
         document.getElementById("General Newsletter Template").style.display = "none";  
 
+
+
         document.getElementById("Welcome Page").style.display = "none";  
+
+
 
         document.getElementById("SEO").style.display = "none";  
 
+
+
         document.getElementById("General Webpage").style.display = "none";  
+
+
 
         document.getElementById("USA / NJ / Princeton").style.display = "none";  
 
+
+
         document.getElementById("USA / NJ / Somerset").style.display = "none";
 
+
+
         document.getElementById("USA / PA").style.display = "none";
+
+
 
         document.getElementById("USA / WI").style.display = "block";  
 
+
+
         document.getElementById("CANADA").style.display = "none";
+
+
 
     }
 
+
+
   
+
+
 
       
 
+
+
     else if (document.getElementById("dropBox").value == "15") {
+
+
 
         document.getElementById("EU Newsletter").style.display = "none";
 
+
+
         document.getElementById("Local Newsletter").style.display = "none";
+
+
 
         document.getElementById("DTE").style.display = "none";  
 
+
+
         document.getElementById("Supplier Central").style.display = "none";
+
+
 
         document.getElementById("Custom Newsletter").style.display = "none";
 
+
+
         document.getElementById("Target Banner").style.display = "none";
+
+
 
         document.getElementById("General Newsletter Template").style.display = "none";  
 
+
+
         document.getElementById("Welcome Page").style.display = "none";  
+
+
 
         document.getElementById("SEO").style.display = "none";  
 
+
+
         document.getElementById("General Webpage").style.display = "none";  
+
+
 
         document.getElementById("USA / NJ / Princeton").style.display = "none";  
 
+
+
         document.getElementById("USA / NJ / Somerset").style.display = "none";
+
+
 
         document.getElementById("USA / PA").style.display = "none";
 
+
+
         document.getElementById("USA / WI").style.display = "none";  
+
+
 
         document.getElementById("CANADA").style.display = "block";
 
+
+
     }
 
-  
+
 
 }
 
+
+
 </script>
+
+
+
+
 
 
 
